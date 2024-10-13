@@ -18,5 +18,17 @@ public class SuiRpcClient : ISuiRpcClient
 
         return _rpc.SendRequestAsync<GetBalanceResponse>(method, request);
     }
+
+    public Task<Response<PaySuiResponse>?> PaySuiAsync(PaySuiRequest request)
+    {
+        const string method = "unsafe_paySui";
+        return _rpc.SendRequestAsync<PaySuiResponse>(method, request);
+    }
+
+    public Task<Response<GetCoinsResponse>?> GetCoinsAsync(GetCoinsRequest request)
+    {
+        const string method = "suix_getCoins";
+        return _rpc.SendRequestAsync<GetCoinsResponse>(method, request);
+    }
 }
 
