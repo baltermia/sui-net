@@ -1,6 +1,6 @@
 ﻿namespace Balter.Sui.Net.Wallet;
 
-internal interface IKeyPair
+public interface IKeyPair
 {
     public string PublicKeyBase64 { get; }
     public string PrivateKeyBase64 { get; }

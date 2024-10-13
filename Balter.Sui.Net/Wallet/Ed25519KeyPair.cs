@@ -2,7 +2,7 @@
 
 namespace Balter.Sui.Net.Wallet;
 
-internal class Ed25519KeyPair : IKeyPair
+public class Ed25519KeyPair : IKeyPair
 {
     public string PublicKeyBase64 { get; private set; }
     public string PrivateKeyBase64 { get; private set; }

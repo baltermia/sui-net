@@ -3,31 +3,11 @@ using System.Security.Cryptography;
 
 namespace Balter.Sui.Net.Wallet;
 
-internal static class Helpers
-{
-    public static byte[] CloneByteArray(this byte[] src) =>
-        (byte[])src.Clone();
-
-    public static void WriteInt(uint i, byte[] arr, int offset)
-    {
-        unchecked
-        {
-            Debug.Assert(arr != null);
-            Debug.Assert(arr.Length >= offset + sizeof(uint));
-
-            arr[offset] = (byte)(i >> 24);
-            arr[offset + 1] = (byte)(i >> 16);
-            arr[offset + 2] = (byte)(i >> 8);
-            arr[offset + 3] = (byte)i;
-        }
-    }
-}
-
 /// <summary>
 /// This is a copy of Rfc28989DeiveBytes from corefx, since .NET Standard 2.0 leaves out the version
 /// where you can specify the HMAC to use I had to copy this version in and use it instead.
 /// </summary>
-internal class Rfc2898DeriveBytesExtended : DeriveBytes
+public class Rfc2898DeriveBytesExtended : DeriveBytes
 {
     private const int MinimumSaltSize = 8;
 
@@ -225,6 +205,26 @@ internal class Rfc2898DeriveBytesExtended : DeriveBytes
     public override void Reset()
     {
         Initialize();
+    }
+}
+
+internal static class Helpers
+{
+    public static byte[] CloneByteArray(this byte[] src) =>
+        (byte[])src.Clone();
+
+    public static void WriteInt(uint i, byte[] arr, int offset)
+    {
+        unchecked
+        {
+            Debug.Assert(arr != null);
+            Debug.Assert(arr.Length >= offset + sizeof(uint));
+
+            arr[offset] = (byte)(i >> 24);
+            arr[offset + 1] = (byte)(i >> 16);
+            arr[offset + 2] = (byte)(i >> 8);
+            arr[offset + 3] = (byte)i;
+        }
     }
 }
 

@@ -3,7 +3,7 @@ using Balter.Sui.Net.Rpc.Requests;
 
 namespace Balter.Sui.Net.Rpc;
 
-internal class SuiRpcClient : ISuiRpcClient
+public class SuiRpcClient : ISuiRpcClient
 {
     private readonly IRpcClient _rpc;
 

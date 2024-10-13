@@ -12,7 +12,7 @@ namespace Balter.Sui.Net.Wallet;
 /// <summary>
 /// Based on https://github.com/bmresearch/Solnet/blob/master/src/Solnet.Wallet/Ed25519Bip32.cs
 /// </summary>
-internal partial class Mnemonics
+public partial class Mnemonics
 {
     private const uint HardenedOffset = 0x80000000;
 
